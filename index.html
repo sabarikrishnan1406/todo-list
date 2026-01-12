@@ -1,0 +1,41 @@
+<<html>
+<head>
+    <title>todo</title>
+</head>
+
+<body>
+
+    <h2>TODO LIST</h2>
+
+    <ul id="todoList"></ul>
+
+    <div>
+        <input id="addTask" type="text">
+        <button onclick="addTask()">Add task</button>
+    </div>
+    <script>
+        function addTask() {
+            let taskInput = document.getElementById("addTask");
+            let task = taskInput.value;
+            if (task === "") {
+                return;
+            }
+            let todoList = document.getElementById("todoList");
+            let listItem = document.createElement("li");
+            let text = document.createElement("span");
+            text.innerText = task;
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Delete";
+            deleteBtn.onclick = function () {
+                listItem.remove();
+            };
+            listItem.appendChild(text);
+            listItem.appendChild(deleteBtn);
+            todoList.appendChild(listItem);
+            taskInput.value = "";
+        }
+        console.log("hello sabari");
+    </script>
+</body>
+</html>
+
